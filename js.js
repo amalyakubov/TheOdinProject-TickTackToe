@@ -1,24 +1,34 @@
 let gameBoard = {
+    lastIndex: 0,
     playerMarker: '',
+    timesInaRow: 0,
     gameboard: ['', '', '', '' ,'' ,'', '', '', ''],
     play: function (row, number) {
-        index = (row - 1) * 3 + number - 1;
-        this.gameboard[index] = this.playerMarker;
-        document.getElementById(`${index + 1}`).style.backgroundColor = "black";
-        this.winCheck();
+        if (this.emptyCheck(row, number) === true) {
+            index = (row - 1) * 3 + (number - 1);
+            this.lastIndex = index;
+            this.gameboard[index] = this.playerMarker;
+            document.getElementById(`${index + 1}`).style.backgroundColor = "black";
+            this.winCheck();
+            this.rowVictoryCheck();
+        } else {
+            console.log('The section is not empty');
+        }
     },
     setPlayerMarker: function(choice) {
         this.playerMarker = choice;
     },
+    left: 0,
     emptyCheck: function(row, number) {
-        index = (row - 1) * 4 + number - 1;
-        if (this.gameboard[index] !== 'X' && this.gameboard[index]) {
-            return true;    
+        index = (row - 1) * 3 + (number - 1);
+        if (this.gameboard[index] === '') {
+            return true; 
         } else {
             return false;
         }
     },
     winCheck: function() {
+        this.rowVictoryCheck();
         if (this.rowVictoryCheck()) {
             if (this.playerWon) {
                 console.log(`Player won!`);
@@ -29,20 +39,11 @@ let gameBoard = {
             console.log(`Tie`);
         }
     },
-    playerWon: '',
+    playerWon: null,
+    victoryRow: [],
     rowVictoryCheck: function() {
-        let timesInaRow = 0;
-        let victoryRow = [];
-        this.gameboard.forEach((element) => {
-            if (element === this.gameboard[this.gameboard.indexOf(element - 1)] && element !== '') {
-                timesInaRow++;
-                victoryRow.push(element);
-            } else {
-                timesInaRow = 0;
-            }
-        })
-        if (timesInaRow === 3) {
-            if (victoryRow[0] === this.playerMarker) {
+        if (this.gameboard[this.lastIndex] === this.gameboard[this.lastIndex - 1] && this.gameboard[this.lastIndex] === this.gameboard[this.lastIndex -2] && this.gameboard[this.lastIndex] !== '') {
+            if (this.gameboard[this.lastIndex] === this.playerMarker) {
                 this.playerWon = true;
             } else {
                 this.playerWon = false;
