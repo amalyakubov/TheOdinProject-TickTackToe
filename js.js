@@ -1,13 +1,12 @@
 let gameBoard = {
     lastIndex: 0,
-    playerMarker: '',
     timesInaRow: 0,
     gameboard: ['', '', '', '' ,'' ,'', '', '', ''],
     play: function (row, number) {
         if (this.emptyCheck(row, number) === true) {
             index = (row - 1) * 3 + (number - 1);
             this.lastIndex = index;
-            this.gameboard[index] = this.playerMarker;
+            this.gameboard[index] = player1.playerMarker;
             document.getElementById(`${index + 1}`).style.backgroundColor = "black";
             this.left -= 1;
             this.winCheck();
@@ -15,9 +14,6 @@ let gameBoard = {
         } else {
             console.log('The section is not empty');
         }
-    },
-    setPlayerMarker: function(choice) {
-        this.playerMarker = choice;
     },
     left: 9,
     emptyCheck: function(row, number) {
@@ -57,20 +53,24 @@ let gameBoard = {
 
 }
 
-const Player = function (name, playerMarker) {
+const Player = function (playerName, playerMarker) {
     this.name = playerName,
     this.playerMarker = playerMarker
 }
 
-let playerName;
-let playerMarker;
-const NAME = document.getElementById('player_1_name');
-const MARKER = document.getElementById('player_1_marker');
-const SUBMIT = document.getElementById('submit');
 
+let player =  {
+    player1: null,
+    playerName: null,
+    playerMarker: null,
+    NAME: document.getElementById('player_1_name'),
+    MARKER: document.getElementById('player_1_marker'),
+    SUBMIT: document.getElementById('submit'),
+}
 
-SUBMIT.addEventListener('click', (event) => {
-    playerMarker = MARKER.textContent;
-    playerName = NAME.textContent;
+player.SUBMIT.addEventListener('click', (event) => {
+    playerMarker = player.MARKER.value;
+    playerName = player.NAME.value;
+    player1 = new Player(playerName, playerMarker);
     event.preventDefault();
-})
+});
