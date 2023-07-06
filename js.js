@@ -46,8 +46,8 @@ let gameBoard = {
         }
     },
     left: 9,
+    rows: [[0, 1, 2], [3, 4, 5], [6, 7, 8]],
     emptyCheck: function(tilenumber) {
-        // index = (row - 1) * 3 + (number - 1);
         if (this.gameboard[tilenumber] === '') {
             return true; 
         } else {
@@ -58,18 +58,29 @@ let gameBoard = {
         this.rowVictoryCheck();
         if (this.rowVictoryCheck()) {
             if (this.playerWon) {
-                console.log(`Player won!`);
+                this.messageElement.textContent = 'Congratulations! You have won!';
+                this.messageElement.style.color = 'green';
             } else {
-                console.log('Player lost!');
+                this.messageElement.textContent = 'You have lost!';
+                this.messageElement.style.color = 'red';
             }
-        } else if(this.left === 9) {
-            console.log(`Tie`);
+        } else if(this.left === 0) {
+            this.messageElement.textContent = 'It\'s a tie';
+            this.messageElement.style.color = 'black';
         }
     },
     playerWon: null,
-    victoryRow: [],
+    messageElement: document.getElementById('message-space'),
+    rowCheck: function() {
+        if (this.gameboard[0] === player.playerMarker && this.gameboard[1] === player.playerMarker && this.gameboard[2] === player.playerMarker || this.gameboard[3] === player.playerMarker && this.gameboard[4] === player.playerMarker && this.gameboard[5] === player.playerMarker ||
+        this.gameboard[6] === player.playerMarker && this.gameboard[7] === player.playerMarker && this.gameboard[8] === player.playerMarker) {
+            return true;
+        } else {
+            return false;
+        }
+    },
     rowVictoryCheck: function() {
-        if (this.gameboard[this.lastIndex] === this.gameboard[this.lastIndex - 1] && this.gameboard[this.lastIndex] === this.gameboard[this.lastIndex -2] && this.gameboard[this.lastIndex] !== '') {
+        if (this.rowCheck() === true) {
             if (this.gameboard[this.lastIndex] === player.playerMarker) {
                 this.playerWon = true;
             } else {
@@ -79,6 +90,5 @@ let gameBoard = {
         } else {
             return false;
         }
-    },
-
+    }
 }
