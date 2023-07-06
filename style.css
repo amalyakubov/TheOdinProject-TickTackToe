@@ -81,6 +81,7 @@ label {
     width: 900px;
     border: 2px solid black;
     background-color: rgb(18, 236, 236);
+    font-size: 225px;
 }
 
 #row-1, #row-2, #row-3 {
@@ -108,4 +109,9 @@ input[type="submit"] {
     border: 1px solid rgb(0, 0, 0);
     height: 35px;
     width: 120px;
+}
+
+.game-tile {
+    justify-content: center;
+    align-content: center;
 }

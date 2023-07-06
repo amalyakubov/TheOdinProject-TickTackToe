@@ -34,10 +34,9 @@ let gameBoard = {
     gameboard: ['', '', '', '' ,'' ,'', '', '', ''],
     play: function (tilenumber) {
         if (this.emptyCheck(tilenumber) === true) {
-            //index = (row - 1) * 3 + (number - 1);
             this.lastIndex = tilenumber;
-            this.gameboard[tilenumber] = player.playerMarker;
-            document.getElementById(`${tilenumber + 1}`).style.backgroundColor = "black";
+            this.gameboard[tilenumber] = player1.playerMarker;
+            document.getElementById(`${tilenumber + 1}`).innerHTML = player1.playerMarker;
             this.left -= 1;
             this.winCheck();
             this.rowVictoryCheck();
@@ -72,8 +71,8 @@ let gameBoard = {
     playerWon: null,
     messageElement: document.getElementById('message-space'),
     rowCheck: function() {
-        if (this.gameboard[0] === player.playerMarker && this.gameboard[1] === player.playerMarker && this.gameboard[2] === player.playerMarker || this.gameboard[3] === player.playerMarker && this.gameboard[4] === player.playerMarker && this.gameboard[5] === player.playerMarker ||
-        this.gameboard[6] === player.playerMarker && this.gameboard[7] === player.playerMarker && this.gameboard[8] === player.playerMarker) {
+        if (this.gameboard[0] === player1.playerMarker && this.gameboard[1] === player1.playerMarker && this.gameboard[2] === player1.playerMarker || this.gameboard[3] === player1.playerMarker && this.gameboard[4] === player1.playerMarker && this.gameboard[5] === player1.playerMarker ||
+        this.gameboard[6] === player1.playerMarker && this.gameboard[7] === player1.playerMarker && this.gameboard[8] === player1.playerMarker) {
             return true;
         } else {
             return false;
@@ -81,7 +80,7 @@ let gameBoard = {
     },
     rowVictoryCheck: function() {
         if (this.rowCheck() === true) {
-            if (this.gameboard[this.lastIndex] === player.playerMarker) {
+            if (this.gameboard[this.lastIndex] === player1.playerMarker) {
                 this.playerWon = true;
             } else {
                 this.playerWon = false;
