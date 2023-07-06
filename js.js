@@ -72,7 +72,7 @@ let gameBoard = {
     messageElement: document.getElementById('message-space'),
     rowCheck: function() {
         if (this.gameboard[0] === player1.playerMarker && this.gameboard[1] === player1.playerMarker && this.gameboard[2] === player1.playerMarker || this.gameboard[3] === player1.playerMarker && this.gameboard[4] === player1.playerMarker && this.gameboard[5] === player1.playerMarker ||
-        this.gameboard[6] === player1.playerMarker && this.gameboard[7] === player1.playerMarker && this.gameboard[8] === player1.playerMarker) {
+        this.gameboard[6] === player1.playerMarker && this.gameboard[7] === player1.playerMarker && this.gameboard[8] === player1.playerMarker || this.gameboard[0] === player1.playerMarker && this.gameboard[3] === player1.playerMarker && this.gameboard[6] === player1.playerMarker || this.gameboard[1] === player1.playerMarker && this.gameboard[4] === player1.playerMarker && this.gameboard[7] === player1.playerMarker || this.gameboard[2] === player1.playerMarker && this.gameboard[5] === player1.playerMarker && this.gameboard[8] === player1.playerMarker) {
             return true;
         } else {
             return false;
