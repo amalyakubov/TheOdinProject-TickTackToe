@@ -10,6 +10,7 @@ let player =  {
     NAME: document.getElementById('player_1_name'),
     MARKER: document.getElementById('player_1_marker'),
     SUBMIT: document.getElementById('submit'),
+    RESTART: document.getElementById('restart'),
 }
 
 player.SUBMIT.addEventListener('click', (event) => {
@@ -45,7 +46,6 @@ let gameBoard = {
         }
     },
     left: 9,
-    rows: [[0, 1, 2], [3, 4, 5], [6, 7, 8]],
     emptyCheck: function(tilenumber) {
         if (this.gameboard[tilenumber] === '') {
             return true; 
@@ -89,5 +89,23 @@ let gameBoard = {
         } else {
             return false;
         }
+    },
+    restartGame: function () {
+        this.gameboard = ['', '', '', '' ,'' ,'', '', '', ''];
+        this.lastIndex = 0;
+        this.timesInaRow = 0;
+        this.playerWon = null;
+        this.left = 9;
+        player.player1 = null;
+        player.playerName = null;
+        player.playerMarker = null;
+        Array.from(tiles).forEach((tile) => {
+            tile.innerHTML = '';
+        });
+        this.messageElement.textContent = '';
     }
 }
+
+player.RESTART.addEventListener('click', () => {
+    gameBoard.restartGame();
+})
