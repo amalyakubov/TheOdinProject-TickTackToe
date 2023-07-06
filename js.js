@@ -9,6 +9,7 @@ let gameBoard = {
             this.lastIndex = index;
             this.gameboard[index] = this.playerMarker;
             document.getElementById(`${index + 1}`).style.backgroundColor = "black";
+            this.left -= 1;
             this.winCheck();
             this.rowVictoryCheck();
         } else {
@@ -18,7 +19,7 @@ let gameBoard = {
     setPlayerMarker: function(choice) {
         this.playerMarker = choice;
     },
-    left: 0,
+    left: 9,
     emptyCheck: function(row, number) {
         index = (row - 1) * 3 + (number - 1);
         if (this.gameboard[index] === '') {
@@ -35,7 +36,7 @@ let gameBoard = {
             } else {
                 console.log('Player lost!');
             }
-        } else {
+        } else if(this.left === 9) {
             console.log(`Tie`);
         }
     },
@@ -55,3 +56,21 @@ let gameBoard = {
     },
 
 }
+
+const Player = function (name, playerMarker) {
+    this.name = playerName,
+    this.playerMarker = playerMarker
+}
+
+let playerName;
+let playerMarker;
+const NAME = document.getElementById('player_1_name');
+const MARKER = document.getElementById('player_1_marker');
+const SUBMIT = document.getElementById('submit');
+
+
+SUBMIT.addEventListener('click', (event) => {
+    playerMarker = MARKER.textContent;
+    playerName = NAME.textContent;
+    event.preventDefault();
+})

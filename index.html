@@ -8,21 +8,40 @@
 </head>
 <body>
     <h2>Tick Tack Toe Game</h2>
-    <div id="game-area">
-        <div id="row-1">
-            <div id="1"></div>
-            <div id="2"></div>
-            <div id="3"></div>
+    <div id="container">
+        <div id="player-space">
+            <div id="choose-player">
+                <form action="something" method="post" id="player-form">
+                    <div id="player-1-name">
+                        <label for="player_1_name">Player name:</label>
+                        <input type="text" name="player_1_name" id="player_1_name">
+                    </div>
+                    <div id="player-playerMarker">
+                        <label for="player_1_marker">Player marker:</label>
+                        <input type="text" name="player_1_marker" id="player_1_marker">
+                    </div>
+                </form>
+                <div id="submit-container">
+                    <input id="submit" type="submit" form="player-form" value="submit"/>
+                </div>
+            </div>
         </div>
-        <div id="row-2">
-            <div id="4"></div>
-            <div id="5"></div>
-            <div id="6"></div>
-        </div>
-        <div id="row-3">
-            <div id="7"></div>
-            <div id="8"></div>
-            <div id="9"></div>
+        <div id="game-area">
+            <div id="row-1">
+                <div id="1"></div>
+                <div id="2"></div>
+                <div id="3"></div>
+            </div>
+            <div id="row-2">
+                <div id="4"></div>
+                <div id="5"></div>
+                <div id="6"></div>
+            </div>
+            <div id="row-3">
+                <div id="7"></div>
+                <div id="8"></div>
+                <div id="9"></div>
+            </div>
         </div>
     </div>
 </body>

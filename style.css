@@ -1,20 +1,60 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#container {
+    display: flex;
+    height: 100%;
+    gap: 100px;
+}
+
+#player-space {
+    display: flex;
+    height: 10%;
+    width: 20%;
+    border: 1px solid black;
+}
+
+#choose-player {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#player-1-name, #player-playerMarker {
+    display: flex;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+}
+
+#player-1-name input, #player-playerMarker input {
+    height: 20px;
+    margin-left: 10px;
+}
+
+label {
+    font-size: 12px;
+    width: 140px;
+}
+
 #game-area {
     display: flex;
-    width: 900px;
-    height: 900px;
     flex-direction: column;
+    height: 100%;
+    width: 900px;
 }
 
 #row-1, #row-2, #row-3 {
     display: flex;
     height: 300px;
     width: 100%;
-    border: 1px solid rgb(219, 74, 74);
 }
 
 #row-1 div, #row-2 div, #row-3 div {
     display: flex;
     height: 100%;
     width: 300px;
-    border: 0.5px solid blue;
+    border: 1px solid black;
 }
