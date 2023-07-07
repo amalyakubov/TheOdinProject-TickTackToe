@@ -35,9 +35,33 @@ body {
     gap: 40px;
 }
 
+#player-2-form {
+    display: none;
+    align-items: center;
+    text-align: left;
+    height: 150px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#player-2-name {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -10px;
+}
+
+#player-2-name input {
+    height: 40px;
+}
+
 #player-space {
     display: flex;
-    height: 175px;
+    height: 200px;
     width: 400px;
     border: 1px solid black;
     background-color: rgb(245, 161, 6);
@@ -69,14 +93,22 @@ body {
 }
 
 #header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     border: 2.5px solid black;
-    background-color: orange
+    background-color: orange;
 }
 
-h2 {
+#header h2 {
     margin-left: 20px;
     color: black;
     font-size: 36px;
+}
+
+#header p {
+    margin-right: 20px;
 }
 
 
@@ -93,6 +125,12 @@ h2 {
     display: flex;
     box-sizing: border-box;
     height: 40px;
+}
+
+
+#player_1_marker, #player_1_name {
+    width: 100%;
+    margin-right: 10px;
 }
 
 label {
@@ -135,6 +173,10 @@ input[type="submit"] {
     border: 1px solid rgb(0, 0, 0);
     height: 35px;
     width: 120px;
+}
+
+#submit-2 {
+    margin-top: 15px;
 }
 
 .game-tile {

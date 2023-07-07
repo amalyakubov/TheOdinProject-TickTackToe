@@ -9,6 +9,7 @@
 <body>
     <div id="header">
         <h2>Tick Tack Toe Game</h2>
+        <p>Made by Amal Yakubov</p>
     </div>
     <div id="show-message">
         <p id="message-space"></p>
@@ -19,12 +20,22 @@
                 <div id="choose-player">
                     <form action="something" method="post" id="player-form">
                         <div id="player-1-name">
-                            <label for="player_1_name">Player name:</label>
-                            <input type="text" name="player_1_name" id="player_1_name">
+                            <label for="player_1_name">Player-1 name:</label>
+                            <input type="text" name="player_1_name" id="player_1_name"/>
                         </div>
                         <div id="player-playerMarker">
                             <label for="player_1_marker">Player marker:</label>
-                            <input type="text" name="player_1_marker" id="player_1_marker">
+                            <select name="player_1_marker" id="player_1_marker" multiple>
+                                <option value="X">X</option>
+                                <option value="O">O</option>
+                            </select>
+                        </div>
+                    </form>
+                    <form action="something" method="post" id="player-2-form">
+                        <div id="player-2-name">
+                            <label for="player_2_name">Player-2 name:</label>
+                            <input type="text" name="player_2_name" id="player_2_name"/>
+                            <input type="submit" id="submit-2" form="player-2-form" value="submit"/>
                         </div>
                     </form>
                     <div id="submit-container">
